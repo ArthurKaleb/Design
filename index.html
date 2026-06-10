@@ -49,14 +49,14 @@
             height: 100vw;
             transform: translate(-50%, -50%) rotate(90deg);
             object-fit: cover;
-            opacity: 0.1; /* Opacidade reduzida para o vídeo ficar sutil */
+            opacity: 0.05; /* Opacidade reduzida para o vídeo ficar sutil */
             z-index: -1;
             pointer-events: none;
         }
 
         .container-celular {
             width: 100%;
-            max-width: 450px;
+            max-width: 70vh;
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -98,8 +98,8 @@
             justify-content: center; /* Cola os elementos nas bordas esquerda e direita */
             width: 100%;
             background-color: transparent;
-            gap: 1vh;
-            background-color: #57575715;
+            gap: 1.5vh;
+            background-color: #57575700;
             border-radius: 1vh;
             container-type: inline-size;
         }
@@ -123,7 +123,7 @@
         .nome-perfil {
             font-family: 'Coolvetica', Arial, sans-serif;
             /* Usamos 'vw' para o texto crescer e diminuir baseado na largura da tela */    
-            letter-spacing: 0.3vh;
+            letter-spacing: 0.05vh;
             color: #ffffff;
             white-space: nowrap;
             
@@ -134,12 +134,24 @@
             display: flex;
             align-items: center;
             background-color: #ff000000;
-        }
+             animation: expandirEspaco 1s ease-out forwards;
+            }
+
+            /* Animação de expansão do espaço entre letras */
+            @keyframes expandirEspaco {
+                from {
+                    letter-spacing: 0.05vh; /* início pequeno */
+                }
+                to {
+                    letter-spacing: 0.3vh; /* valor final normal */
+                }
+            }
+        
 
         .botoes-topo {
             display: flex;
             width: 100%;
-            gap: 15px;
+            gap: 1.5vh;
             animation: subirEVer 0.8s ease-out forwards;
         }
 
@@ -154,7 +166,7 @@
             gap: 8px;
             padding: 15px 5px;
             border-radius: 1.5vh;
-            font-size: 14px;
+            font-size: 1.8vh;
             font-weight: bold;
             border: 1px solid #333;
             white-space: nowrap;
@@ -163,8 +175,8 @@
         }
 
         .icone-botao {
-            width: 18px;
-            height: 18px;
+            width: 3.3vh;
+            height: 3.3vh;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -193,7 +205,6 @@
         .botao-imagem {
             display: block;
             width: 100%;
-            max-width: 450px;
             height: auto;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
