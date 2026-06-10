@@ -49,7 +49,7 @@
             height: 100vw;
             transform: translate(-50%, -50%) rotate(90deg);
             object-fit: cover;
-            opacity: 1; /* Opacidade reduzida para o vídeo ficar sutil */
+            opacity: 0.1; /* Opacidade reduzida para o vídeo ficar sutil */
             z-index: -1;
             pointer-events: none;
         }
@@ -87,33 +87,53 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 20px;
             width: 100%;
         }
 
         .perfil-container {
             display: flex;
-            align-items: center;
-            justify-content: center; 
-            gap: 2vh;
+            align-items: center;      /* Alinha verticalmente no centro */
+            justify-content: center; /* Cola os elementos nas bordas esquerda e direita */
             width: 100%;
+            background-color: transparent;
+            gap: 1vh;
+            background-color: #57575715;
+            border-radius: 1vh;
+            container-type: inline-size;
+        }
+
+        .foto-perfil {
+            width: 25%;               /* Define a largura proporcional à tela */
+            aspect-ratio: 1 / 1;      /* Força a imagem a ser um quadrado perfeito antes do border-radius */
+            flex-shrink: 0;   
+            background-color: #ff000000;        /* Impede que a foto amasse */
         }
 
         .foto-perfil img {
-            width: 12vh;
-            height: 12vh;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #333;
-            flex-shrink: 0;
+            display: block;
         }
 
         .nome-perfil {
             font-family: 'Coolvetica', Arial, sans-serif;
-            font-size: 12vh;
-            letter-spacing: 0.4vh;
+            /* Usamos 'vw' para o texto crescer e diminuir baseado na largura da tela */    
+            letter-spacing: 0.3vh;
             color: #ffffff;
             white-space: nowrap;
+            
+            /* Garante que o tamanho máximo do texto seja proporcional ao container de 450px */
+            font-size: 27cqw;
+            margin-top: -0.7vh;
+            
+            display: flex;
+            align-items: center;
+            background-color: #ff000000;
         }
 
         .botoes-topo {
@@ -213,7 +233,7 @@
                 <div class="foto-perfil">
                     <img src="perfil recortada.jpg" alt="Foto de Perfil">
                 </div>
-                <h1 class="nome-perfil">KALEB DESIGNS.</h1>
+                <h1 class="nome-perfil">KALEB DESIGNS</h1>
             </div>
             
             <div class="botoes-topo">
