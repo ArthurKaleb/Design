@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <style>
+        /* ========================================================
+           IMPORTAÇÃO DA FONTE LOCAL (.otf)
+           ======================================================== */
+        @font-face {
+            font-family: 'Coolvetica';
+            src: url('Coolvetica Rg cram.otf') format('opentype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* ========================================================
+           CONFIGURAÇÕES GERAIS
+           ======================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000000; /* Tom de azul bem escuro no fundo */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 4vh 6vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* ========================================================
+           VÍDEO DE FUNDO ROTACIONADO 90 GRAUS
+           ======================================================== */
+        .video-fundo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vh;
+            height: 100vw;
+            transform: translate(-50%, -50%) rotate(90deg);
+            object-fit: cover;
+            opacity: 0.05; /* Opacidade reduzida para o vídeo ficar sutil */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container-celular {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================================
+           ANIMAÇÕES DE ENTRADA (FADE IN + SLIDE UP + BLUR)
+           ======================================================== */
+        @keyframes subirEVer {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* ========================================================
+           TOPO: FOTO, NOME E LINKS (WHATSAPP / BEHANCE)
+           ======================================================== */
+        .topo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            animation: subirEVer 0.8s ease-out forwards;
+        }
+
+        .perfil-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 2vh;
+            width: 100%;
+        }
+
+        .foto-perfil img {
+            width: 12vh;
+            height: 12vh;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #333;
+            flex-shrink: 0;
+        }
+
+        .nome-perfil {
+            font-family: 'Coolvetica', Arial, sans-serif;
+            font-size: 15vh;
+            letter-spacing: 0.3vh;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .botoes-topo {
+            display: flex;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .botao-topo {
+            flex: 1;
+            background-color: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 5px;
+            border-radius: 1.5vh;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .icone-botao {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* ========================================================
+           TEXTO DE CHAMADA / DESTAQUE
+           ======================================================== */
+        .chamada {
+            text-align: center;
+            font-size: 2vh;
+            line-height: 1.6;
+            color: #e0e0e0;
+            padding: 0 5px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: subirEVer 0.8s ease-out 0.15s forwards;
+        }
+
+        .chamada strong {
+            color: #4661ff; 
+        }
+
+        /* ========================================================
+           ESTILIZAÇÃO DAS IMAGENS COMPORTANDO-SE COMO BOTÕES
+           ======================================================== */
+        .botao-imagem {
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: contain;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        /* Timings sequenciais das animações das imagens */
+        .img-laranja { animation: subirEVer 0.8s ease-out 0.3s forwards; }
+        .img-roxo { animation: subirEVer 0.8s ease-out 0.45s forwards; }
+        .img-vermelho { animation: subirEVer 0.8s ease-out 0.6s forwards; }
+
+        /* ========================================================
+           RODAPÉ
+           ======================================================== */
+        .rodape {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin-top: 10px;
+            opacity: 0;
+            animation: subirEVer 0.8s ease-out 0.75s forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="video-fundo">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="container-celular">
+        
+        <header class="topo">
+            <div class="perfil-container">
+                <div class="foto-perfil">
+                    <img src="perfil recortada.jpg" alt="Foto de Perfil">
+                </div>
+                <h1 class="nome-perfil">KALEB</h1>
+            </div>
+            
+            <div class="botoes-topo">
+                <a href="https://wa.me/558491297525?text=Quero%20saber%20os%20valores" target="_blank" class="botao-topo">
+                    <img src="wh.png" alt="WhatsApp" class="icone-botao">
+                    WhatsApp
+                </a>
+                <a href="#" class="botao-topo">
+                    <img src="bh.png" alt="Behance" class="icone-botao">
+                    Behance
+                </a>
+            </div>
+        </header>
+
+        <section class="chamada">
+            <p>Mude como seu <strong>perfil é visto </strong>pelas pessoas e <strong>transforme sua marca</strong></p>
+        </section>
+
+        <a href="https://wa.me/558491297525?text=Quero%20saber%20os%20valores" target="_blank">
+            <img src="b1.png" alt="Quero saber os valores" class="botao-imagem img-laranja">
+        </a>
+
+        <a href="#" target="_blank">
+            <img src="b2.png" alt="Solicitar orçamentos" class="botao-imagem img-roxo">
+        </a>
+
+        <a href="https://instagram.com/kaleb_designer" target="_blank">
+            <img src="b3.png" alt="Acessar Instagram" class="botao-imagem img-vermelho">
+        </a>
+
+        <footer class="rodape">
+            <p>© 2026 @kaleb_designer</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.querySelector('.video-fundo').playbackRate = 0.3;
+    </script>
+</body>
+</html>
