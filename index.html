@@ -6,13 +6,26 @@
     <title>Meu Portfólio</title>
     <style>
         /* ========================================================
-           IMPORTAÇÃO DA FONTE LOCAL (.otf)
+           FONTES LOCAIS
            ======================================================== */
         @font-face {
             font-family: 'Coolvetica';
             src: url('coolvetica rg cram.otf') format('opentype'); 
-            
             font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('montserrat-regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('montserrat-medio.otf') format('opentype');
+            font-weight: 500;
             font-style: normal;
         }
 
@@ -23,13 +36,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            src: url('montserrat-regular.otf') format('opentype'); 
-            src: url('montserrat-medio.otf') format('opentype'); 
             font-family: 'Montserrat', Arial, sans-serif;
         }
 
         body {
-            background-color: #000000; /* Tom de azul bem escuro no fundo */
+            background-color: #000000; 
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -49,7 +60,7 @@
             height: 100vw;
             transform: translate(-50%, -50%) rotate(90deg);
             object-fit: cover;
-            opacity: 0.05; /* Opacidade reduzida para o vídeo ficar sutil */
+            opacity: 0.05; 
             z-index: -1;
             pointer-events: none;
         }
@@ -65,7 +76,7 @@
         }
 
         /* ========================================================
-           ANIMAÇÕES DE ENTRADA (FADE IN + SLIDE UP + BLUR)
+           ANIMAÇÕES DE ENTRADA
            ======================================================== */
         @keyframes subirEVer {
             0% {
@@ -81,7 +92,7 @@
         }
 
         /* ========================================================
-           TOPO: FOTO, NOME E LINKS (WHATSAPP / BEHANCE)
+           TOPO: FOTO, NOME E LINKS
            ======================================================== */
         .topo {
             display: flex;
@@ -94,10 +105,9 @@
 
         .perfil-container {
             display: flex;
-            align-items: center;      /* Alinha verticalmente no centro */
-            justify-content: center; /* Cola os elementos nas bordas esquerda e direita */
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            background-color: transparent;
             gap: 1.5vh;
             background-color: #57575700;
             border-radius: 1vh;
@@ -105,10 +115,10 @@
         }
 
         .foto-perfil {
-            width: 25%;               /* Define a largura proporcional à tela */
-            aspect-ratio: 1 / 1;      /* Força a imagem a ser um quadrado perfeito antes do border-radius */
+            width: 25%; 
+            aspect-ratio: 1 / 1; 
             flex-shrink: 0;   
-            background-color: #ff000000;        /* Impede que a foto amasse */
+            background-color: #ff000000;
         }
 
         .foto-perfil img {
@@ -122,31 +132,21 @@
 
         .nome-perfil {
             font-family: 'Coolvetica', Arial, sans-serif;
-            /* Usamos 'vw' para o texto crescer e diminuir baseado na largura da tela */    
             letter-spacing: 0.05vh;
             color: #ffffff;
             white-space: nowrap;
-            
-            /* Garante que o tamanho máximo do texto seja proporcional ao container de 450px */
             font-size: 27cqw;
             margin-top: -0.7vh;
-            
             display: flex;
             align-items: center;
             background-color: #ff000000;
-             animation: expandirEspaco 1s ease-out forwards;
-            }
+            animation: expandirEspaco 1s ease-out forwards;
+        }
 
-            /* Animação de expansão do espaço entre letras */
-            @keyframes expandirEspaco {
-                from {
-                    letter-spacing: 0.05vh; /* início pequeno */
-                }
-                to {
-                    letter-spacing: 0.3vh; /* valor final normal */
-                }
-            }
-        
+        @keyframes expandirEspaco {
+            from { letter-spacing: 0.05vh; }
+            to { letter-spacing: 0.3vh; }
+        }
 
         .botoes-topo {
             display: flex;
@@ -207,13 +207,12 @@
             width: 100%;
             height: auto;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             object-fit: contain;
             cursor: pointer;
             opacity: 0;
         }
 
-        /* Timings sequenciais das animações das imagens */
         .img-laranja { animation: subirEVer 0.8s ease-out 0.3s forwards; }
         .img-roxo { animation: subirEVer 0.8s ease-out 0.45s forwards; }
         .img-vermelho { animation: subirEVer 0.8s ease-out 0.6s forwards; }
