@@ -50,7 +50,7 @@
         }
 
         /* ========================================================
-           VÍDEO DE FUNDO ROTACIONADO 90 GRAUS
+           VÍDEO DE FUNDO ROTACIONADO 90 GRAUS (PADRÃO CELULAR)
            ======================================================== */
         .video-fundo {
             position: fixed;
@@ -195,11 +195,18 @@
             animation: subirEVer 0.8s ease-out 0.15s forwards;
         }
 
-        /* STRONG usa Montserrat Medium */
         .chamada strong {
             color: #4661ff;
             font-family: 'Montserrat', Arial, sans-serif;
             font-weight: 500;
+        }
+
+        /* Container para alinhar os cards (Padrão celular: coluna) */
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 100%;
         }
 
         /* ========================================================
@@ -230,6 +237,103 @@
             margin-top: 10px;
             opacity: 0;
             animation: subirEVer 0.8s ease-out 0.75s forwards;
+        }
+
+        /* ========================================================
+           MUDANÇAS REQUISITADAS PARA O COMPUTADOR (DESKTOP)
+           ======================================================== */
+        @media (min-width: 992px) {
+            body {
+                padding: 6vh 5vw;
+                align-items: center;
+            }
+
+            /* Remove a rotação de 90° do vídeo no PC */
+            .video-fundo {
+                width: 100vw;
+                height: 100vh;
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            /* Permite o site expandir horizontalmente */
+            .container-celular {
+                max-width: 1200px;
+                gap: 40px;
+            }
+
+            /* Transforma o topo em Grid para alinhar igual à sua imagem */
+            .topo {
+                display: grid;
+                grid-template-columns: 160px 1fr;
+                grid-template-areas: 
+                    "foto nome"
+                    "foto botoes";
+                gap: 10px 35px;
+                align-items: center;
+                justify-content: start;
+                width: auto;
+                margin: 0 auto;
+            }
+
+            /* Hack CSS necessário para reposicionar os filhos no Grid */
+            .perfil-container {
+                display: contents; 
+            }
+
+            .foto-perfil {
+                grid-area: foto;
+                width: 160px;
+            }
+
+            /* Nome grande e imponente à direita da foto */
+            .nome-perfil {
+                grid-area: nome;
+                font-size: 85px; 
+                line-height: 1;
+                margin-top: 0;
+                justify-content: flex-start;
+            }
+
+            /* Botões do topo alinhados horizontalmente abaixo do nome */
+            .botoes-topo {
+                grid-area: botoes;
+                width: auto;
+                gap: 15px;
+                justify-content: flex-start;
+            }
+
+            .botao-topo {
+                flex: none;
+                width: 200px;
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+
+            /* Centraliza a chamada e ajusta o tamanho no desktop */
+            .chamada {
+                font-size: 20px;
+                letter-spacing: 1px;
+                margin: 15px 0;
+            }
+
+            /* Organiza os 3 cards principais lado a lado */
+            .cards-container {
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .cards-container a {
+                flex: 1;
+            }
+
+            /* Efeito opcional de passar o mouse por cima (hover) */
+            .botao-imagem {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .botao-imagem:hover {
+                transform: scale(1.02);
+            }
         }
     </style>
 </head>
@@ -265,17 +369,19 @@
             <p>Mude como seu <strong>perfil é visto </strong>pelas pessoas e <strong>transforme sua marca</strong></p>
         </section>
 
-        <a href="https://wa.me/558491297525?text=Quero%20saber%20os%20valores" target="_blank">
-            <img src="b1.png" alt="Quero saber os valores" class="botao-imagem img-laranja">
-        </a>
+        <div class="cards-container">
+            <a href="https://wa.me/558491297525?text=Quero%20saber%20os%20valores" target="_blank">
+                <img src="b1.png" alt="Quero saber os valores" class="botao-imagem img-laranja">
+            </a>
 
-        <a href="#" target="_blank">
-            <img src="b2.png" alt="Solicitar orçamentos" class="botao-imagem img-roxo">
-        </a>
+            <a href="#" target="_blank">
+                <img src="b2.png" alt="Solicitar orçamentos" class="botao-imagem img-roxo">
+            </a>
 
-        <a href="https://instagram.com/kaleb_designer" target="_blank">
-            <img src="b3.png" alt="Acessar Instagram" class="botao-imagem img-vermelho">
-        </a>
+            <a href="https://instagram.com/kaleb_designer" target="_blank">
+                <img src="b3.png" alt="Acessar Instagram" class="botao-imagem img-vermelho">
+            </a>
+        </div>
 
         <footer class="rodape">
             <p>© 2026 @kaleb_designer</p>
